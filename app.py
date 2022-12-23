@@ -12,9 +12,10 @@ def index():
     if request.method == "POST":
         animal = request.form["animal"]
         response = openai.Completion.create(
-            model="text-davinci-002",
-            prompt=generate_prompt(animal),
-            temperature=0.6,
+            model="text-davinci-003",
+            prompt=generate_definition_en(
+                animal) + generate_definition_jp(animal),
+            temperature=0.7,
         )
         return redirect(url_for("index", result=response.choices[0].text))
 
@@ -22,14 +23,13 @@ def index():
     return render_template("index.html", result=result)
 
 
-def generate_prompt(animal):
-    return """Suggest three names for an animal that is a superhero.
+def generate_sentence(keyword):
+    return "Suggest some sentences in Japanese with keyword '" + keyword + "'"
 
-Animal: Cat
-Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-Animal: Dog
-Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-Animal: {}
-Names:""".format(
-        animal.capitalize()
-    )
+
+def generate_definition_en(keyword):
+    return "explain for the word '" + keyword + "' in English"
+
+
+def generate_definition_jp(keyword):
+    return "explain for the word '" + keyword + "' in Japanese"
