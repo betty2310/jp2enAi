@@ -13,9 +13,12 @@ def index():
         animal = request.form["animal"]
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=generate_definition_en(
-                animal) + generate_definition_jp(animal),
+            prompt=generate_sentence(animal),
             temperature=0.7,
+            max_tokens=256,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0
         )
         return redirect(url_for("index", result=response.choices[0].text))
 
@@ -24,7 +27,7 @@ def index():
 
 
 def generate_sentence(keyword):
-    return "Suggest some sentences in Japanese with keyword '" + keyword + "'"
+    return "write some sentences to show how to use " + keyword + " in Japanese"
 
 
 def generate_definition_en(keyword):
