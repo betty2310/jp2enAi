@@ -72,5 +72,8 @@ input[type="submit"] {
 .result {
   font-weight: normal;
   margin-top: 40px;
-  font-size: large;
+  background-color: #edf5ec;
+  padding: 5px;
+  border: #10a37f 3px dotted;
+  border-radius: 4px;
 }
