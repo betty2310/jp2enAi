@@ -1,3 +1,4 @@
+![](./assets/web.png)
 # Disclaimers
 This is not an official OpenAI product. This is a personal project and is not affiliated with OpenAI in any way. Don't sue me.
 
