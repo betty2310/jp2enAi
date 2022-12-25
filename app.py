@@ -10,17 +10,26 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 @app.route("/", methods=("GET", "POST"))
 def index():
     if request.method == "POST":
-        animal = request.form["animal"]
-        response = openai.Completion.create(
+        keyword = request.form["keyword"]
+        response_definition = openai.Completion.create(
             model="text-davinci-003",
-            prompt=generate_sentence(animal),
+            prompt=generate_definition_jp(keyword),
             temperature=0.7,
             max_tokens=256,
             top_p=1,
             frequency_penalty=0,
             presence_penalty=0
         )
-        return redirect(url_for("index", result=response.choices[0].text))
+        response_sentence = openai.Completion.create(
+            model="text-davinci-003",
+            prompt=generate_sentence(keyword),
+            temperature=0.7,
+            max_tokens=256,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0
+        )
+        return redirect(url_for("index", result=response_definition.choices[0].text + "\n" + response_sentence.choices[0].text))
 
     result = request.args.get("result")
     return render_template("index.html", result=result)
@@ -35,4 +44,4 @@ def generate_definition_en(keyword):
 
 
 def generate_definition_jp(keyword):
-    return "explain for the word '" + keyword + "' in Japanese"
+    return keyword + " とは何ですか 1. 日本語 2. English"
