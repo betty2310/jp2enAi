@@ -10,7 +10,7 @@
   <img src="{{ url_for('static', filename='logo.png') }}" class="icon" />
   <h3>Enter a word</h3>
   <form action="/" method="post">
-    <input type="text" name="animal" placeholder="Enter a word, like 日本" required />
+    <input type="text" name="keyword" placeholder="Enter a word, like 日本" required />
     <input type="submit" value="Generate!" />
   </form>
   {% if result %}
