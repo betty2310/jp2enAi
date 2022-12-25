@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 
 <head>
-  <title>JP to EN 🤖</title>
+  <title>Definition and sentences 🤖</title>
   <link rel="shortcut icon" href="{{ url_for('static', filename='logo.png') }}" />
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
 </head>
 
 <body>
   <img src="{{ url_for('static', filename='logo.png') }}" class="icon" />
-  <h3>Enter a word</h3>
+  <h3>🇯🇵 🤖 🇬🇧</h3>
   <form action="/" method="post">
     <input type="text" name="keyword" placeholder="Enter a word, like 日本" required />
     <input type="submit" value="Generate!" />
