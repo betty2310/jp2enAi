@@ -1,7 +1,8 @@
 import os
-
+from parse import parse
 import openai
 from flask import Flask, redirect, render_template, request, url_for
+
 
 app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -13,7 +14,7 @@ def index():
         keyword = request.form["keyword"]
         response_definition = openai.Completion.create(
             model="text-davinci-003",
-            prompt=generate_definition_jp(keyword),
+            prompt=generate_definition(keyword),
             temperature=0.7,
             max_tokens=256,
             top_p=1,
@@ -32,6 +33,7 @@ def index():
         return redirect(url_for("index", result=response_definition.choices[0].text + "\n" + response_sentence.choices[0].text))
 
     result = request.args.get("result")
+    result = parse(result)
     return render_template("index.html", result=result)
 
 
@@ -39,9 +41,5 @@ def generate_sentence(keyword):
     return "write some sentences to show how to use " + keyword + " in Japanese"
 
 
-def generate_definition_en(keyword):
-    return "explain for the word '" + keyword + "' in English"
-
-
-def generate_definition_jp(keyword):
+def generate_definition(keyword):
     return keyword + " とは何ですか 1. 日本語 2. English"
