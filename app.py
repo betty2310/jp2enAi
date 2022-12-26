@@ -33,7 +33,10 @@ def index():
         return redirect(url_for("index", result_def=response_definition.choices[0].text, result_sen=response_sentence.choices[0].text))
 
     result_def = request.args.get("result_def")
+    result_def = parse(result_def)
     result_sen = request.args.get("result_sen")
+    result_sen = parse(result_sen)
+    print(result_def)
     return render_template("index.html", result_def=result_def, result_sen=result_sen)
 
 
@@ -42,4 +45,4 @@ def generate_sentence(keyword):
 
 
 def generate_definition(keyword):
-    return keyword + " とは何ですか?日本語と英語"
+    return keyword + " とは何ですか?日本語と英語で説明をお願いします。"
