@@ -78,3 +78,12 @@ input[type="submit"] {
   border: #10a37f 3px dotted;
   border-radius: 5px;
 }
+
+.result_sen {
+  font-weight: normal;
+  margin: 0px 120px 40px 120px;
+  background-color: #edf5ec;
+  padding: 5px;
+  border: #10a37f 3px dotted;
+  border-radius: 5px;
+}

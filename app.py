@@ -30,11 +30,11 @@ def index():
             frequency_penalty=0,
             presence_penalty=0
         )
-        return redirect(url_for("index", result=response_definition.choices[0].text + "\n" + response_sentence.choices[0].text))
+        return redirect(url_for("index", result_def=response_definition.choices[0].text, result_sen=response_sentence.choices[0].text))
 
-    result = request.args.get("result")
-    result = parse(result)
-    return render_template("index.html", result=result)
+    result_def = request.args.get("result_def")
+    result_sen = request.args.get("result_sen")
+    return render_template("index.html", result_def=result_def, result_sen=result_sen)
 
 
 def generate_sentence(keyword):
@@ -42,4 +42,4 @@ def generate_sentence(keyword):
 
 
 def generate_definition(keyword):
-    return keyword + " とは何ですか 1. 日本語 2. English"
+    return keyword + " とは何ですか?日本語と英語"
