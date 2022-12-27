@@ -2,7 +2,7 @@
   <img src="https://github.com/betty2310/jp2enAi/blob/main/assets/logo.png?raw=true" width="150" />
 </p>
 <p align=center>
-  <b>The Footballer Management System⚽🏟️</b>
+  <b>Make wjbu great again!</b>
 </p>
 <p align=center>
   <a href="https://github.com/betty2310/jp2enAi/wiki"><img alt="wiki" src="https://img.shields.io/badge/doc-reference-blue"></a>
@@ -13,9 +13,10 @@
 ------
 # Installation 
 
-Run the following commands install the dependencies and run the app. 
+Run the following commands to install the dependencies and run the app. 
 
-> :notes: You may need to type python3/pip3 instead of python/pip depending on your setup.
+> **notes**
+>  You may need to type `python3/pip3` instead of `python/pip` depending on your setup.
 
 ```bash
 git clone https://github.com/betty2310/jp2enAi
@@ -24,6 +25,21 @@ python -m venv venv
 . venv/bin/activate
 pip install -r requirements.txt
 ```
+
+Create your own `.env` file by copying the `.env.example` file.
+
+```bash
+cp .env.example .env
+```
+
+After that, copy your secret [OpenAI API](https://beta.openai.com/account/api-keys) key and set it as the `OPENAI_API_KEY` in your newly created `.env` file.
+
+Run the web app by:
+```python 
+flask run
+```
+Congratualtion, open http://localhost:5000 in your browser and yeah 🎊!
+
 
 # Usage
 
