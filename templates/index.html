@@ -14,9 +14,11 @@
     <input type="submit" value="Generate!" />
   </form>
   {% if result_def_jp %}
-  <div class="result">🇯🇵 {{ result_def_jp }} <br>🇬🇧 {{ result_def_en }} </div>
-  {% endif %}
-  {% if result_sen %}
-  <div class="result_sen">{{ result_sen }}</div>
-  {% endif %}
+  <div class="res_col">
+    <div class="result">🇯🇵 {{ result_def_jp }} <br>🇬🇧 {{ result_def_en }} </div>
+    {% endif %}
+    {% if result_sen %}
+    <div class="result_sen">{{ result_sen }}</div>
+    {% endif %}
+  </div>
 </body>
