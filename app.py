@@ -33,11 +33,9 @@ def index():
         return redirect(url_for("index", result_def=response_definition.choices[0].text, result_sen=response_sentence.choices[0].text))
 
     result_def = request.args.get("result_def")
-    result_def_jp = ""
-    result_def_en = ""
-    if result_def is not None:
-        result_def_jp, result_def_en = parse(result_def)
+    result_def_jp, result_def_en = parse(result_def)
     result_sen = request.args.get("result_sen")
+    print(result_def_jp, result_def_en)
     return render_template("index.html", result_def_jp=result_def_jp, result_def_en=result_def_en, result_sen=result_sen)
 
 
