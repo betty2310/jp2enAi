@@ -15,7 +15,7 @@
 
 Run the following commands to install the dependencies and run the app. 
 
-> **notes**
+> **Note**
 >  You may need to type `python3/pip3` instead of `python/pip` depending on your setup.
 
 ```bash
@@ -38,14 +38,14 @@ Run the web app by:
 ```python 
 flask run
 ```
-Congratualtion, open http://localhost:5000 in your browser and yeah 🎊!
+Congratualtion, open http://localhost:5000 in your browser 🎊!
 
 
 # Usage
 
 ![](./assets/web.png)
 
-In web, just type keywork you need, press `generate!` and done 🎊.
+In web, just type keywork you need, press `generate!` and done 🚀.
 
 # Limitations
 
