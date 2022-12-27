@@ -13,8 +13,8 @@
     <input type="text" name="keyword" placeholder="Enter a word, like 日本" required />
     <input type="submit" value="Generate!" />
   </form>
-  {% if result_def %}
-  <div class="result">{{ result_def }}</div>
+  {% if result_def_jp %}
+  <div class="result">🇯🇵 {{ result_def_jp }} <br>🇬🇧 {{ result_def_en }} </div>
   {% endif %}
   {% if result_sen %}
   <div class="result_sen">{{ result_sen }}</div>

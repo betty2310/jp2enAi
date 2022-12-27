@@ -1,8 +1,8 @@
 def parse(str):
-    result = ""
-    for character in str:
-        if character.isdigit():
-            result += "\n" + character
-        else:
-            result += character
-    return result
+    parts = str.split("英語")
+    if(len(parts) == 1):
+        return parts[0], ""
+    jp = parts[0]
+    jp = jp.replace("日本語", "")
+    b = parts[1]
+    return jp, b
